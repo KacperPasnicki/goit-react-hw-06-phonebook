@@ -1,8 +1,15 @@
 import PropTypes from 'prop-types';
 
 
+
+
 export const ContactsList = ({onDelete, actualContacts}) => {
-   
+  // const removeContact = contactID => {
+  //   const newArray = contacts.filter((item) => item.id !== contactID)
+  //   setContacts(newArray) przerobic na delete !!!!!
+  //     }
+
+  
     return (
     
     <ul>

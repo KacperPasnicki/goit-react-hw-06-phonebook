@@ -3,18 +3,15 @@ import { ContactsList } from './ContactsList/ContactsList';
 import { Form } from "./Form/Form";
 import { nanoid } from 'nanoid'
 import { Filter } from './Filter';
+import {filter} from '../redux/actions'
+import { useDispatch } from 'react-redux';
 
 
 
 
 export const App =() => {
-  
+  const dispatch = useDispatch()
  
-
-  
-  
-
-  
   const [contacts, setContacts] = useState(() => {
 
 
@@ -70,11 +67,8 @@ useEffect(() => {
 
 
 
-  const handleChange = (e) => {
-    
-    // const { name, value } = e.target;
-    setFilter(e.target.value);
-  };
+  const handleChange = (e) => dispatch(setFilter(e.target.value));
+  ;
   
   const findContact = () => {
     const newArray = contacts.filter(contact => {
@@ -83,27 +77,12 @@ useEffect(() => {
     });
     return newArray;
   };
-
-  // const removeContact = contactID => {
-  //   const index = setFilter.contacts.findIndex(
-  //     contact => contact.id === contactID
-  //   );
-  //   const genNewElement = () => {
-  //     const array = contacts;
-  //     let newArray = [];
-  //     for (const element of array) {
-  //       if (array.indexOf(element) !== index) {
-  //         newArray.push(element);
-  //       }
-  //     }
-  //     return newArray;
-  //   };
-  //   setContacts([( contacts ) => ({ contacts: genNewElement() })]);
-  // };
-  const removeContact = contactID => {
-const newArray = contacts.filter((item) => item.id !== contactID)
-setContacts(newArray)
-  }
+const removeContact = (contact) =>dispatch(removeContact(contact))
+ 
+//   const removeContact = contactID => {
+// const newArray = contacts.filter((item) => item.id !== contactID)
+// setContacts(newArray)
+//   }
    
     
   return (
@@ -114,7 +93,7 @@ setContacts(newArray)
         <Form  handleSubmit={handleSubmit}/>
        
         <h2>Contacts:</h2>
-      <Filter value={filter} handleChange={handleChange}/>
+      <Filter />
       <ContactsList
       onDelete={removeContact} actualContacts={findContact}
       />

@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-export const Filter =({handleChange}) => {
+export const Filter =() => {
 
      
       return (
@@ -14,12 +14,12 @@ export const Filter =({handleChange}) => {
             type="text"
             name="filter"
            
-            onChange={handleChange}
+            // onChange={handleChange}
           />
         </label>
       );
     }
-    Filter.propTypes = {
-      handleChange: PropTypes.func.isRequired,
+    // Filter.propTypes = {
+    //   handleChange: PropTypes.func.isRequired,
       
-        }
+    //     }
