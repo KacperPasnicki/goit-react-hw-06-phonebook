@@ -1,22 +1,46 @@
 import React from 'react';
 import { nanoid } from 'nanoid'
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import { useDispatch,useSelector } from 'react-redux';
+import { getContact,  } from 'redux/selectors';
+import {addContact} from "redux/Slice"
+
+export const Form =() => {
+  const items = useSelector(getContact);
+  const dispatch = useDispatch()
+  let Id = nanoid();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+   
+    const form = e.currentTarget;
+    const name = form.elements.name.value
+    const number = form.elements.number.value;
+    //  const newContact = { id: nanoid(8), name: name, number: number };
+    const nameArray = items.map(({name}) =>name)
+    if (nameArray.includes(name)) {
+      alert(`${name} is already in contacts !`)
+    }else {
+      dispatch(addContact(name, number))
+    
+
+    
+    console.log(name, number);
+
+    //  this.props.onSubmit({ ...this.state });
+
+    form.reset();
+  }};
 
 
-
-
-export const Form = ({handleSubmit}) => {
-
-
-  let elementId = nanoid(8);
 
     
       return (
         <form className='nameForm' onSubmit={handleSubmit}
-        htmlFor={elementId}>
+        htmlFor={Id}>
           <label className='label'><span className='formName'>Name: </span>
           <input 
-          id={elementId}
+          id={Id}
           
           type="text"
             name="name"
@@ -29,7 +53,7 @@ export const Form = ({handleSubmit}) => {
           </label>
           <label className='label'><span className='formName'>Number: </span>
           <input 
-          id={elementId}
+          id={Id}
       
           // onChange={handleChange}
           type="tel"
@@ -51,7 +75,7 @@ export const Form = ({handleSubmit}) => {
   
 
 
-    Form.propTypes = {
-      handleSubmit: PropTypes.func.isRequired,
+    // Form.propTypes = {
+    //   handleSubmit: PropTypes.func.isRequired,
      
-        }
+    //     }

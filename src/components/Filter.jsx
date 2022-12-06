@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import React from 'react';
-
-
+import { getFilter } from 'redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterContact } from 'redux/Slice';
 
 export const Filter =() => {
-
-     
+  const filter = useSelector(getFilter);
+  const dispatch = useDispatch();
+  const handleChange = (e) => dispatch(filterContact(e.target.value));
+  
       return (
         <label className='label'>
           Find contacts by Name
@@ -13,8 +16,8 @@ export const Filter =() => {
             className='filterForm'
             type="text"
             name="filter"
-           
-            // onChange={handleChange}
+           value={filter}
+            onChange={handleChange}
           />
         </label>
       );
