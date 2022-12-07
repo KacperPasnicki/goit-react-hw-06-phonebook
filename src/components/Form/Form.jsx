@@ -25,7 +25,7 @@ export const Form =() => {
     
 
     
-    console.log(name, number);
+    
 
     //  this.props.onSubmit({ ...this.state });
 

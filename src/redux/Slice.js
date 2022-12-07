@@ -19,7 +19,7 @@ const contactsInitialState = {
         prepare(name, number) {
             return {
                 payload: 
-                    { id: nanoid(), name, number },
+                    { id: nanoid(8), name, number },
             };
           },
         },

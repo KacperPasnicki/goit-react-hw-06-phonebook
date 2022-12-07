@@ -1,21 +1,21 @@
 import React, { useEffect} from 'react';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Form } from "./Form/Form";
-// import { nanoid } from 'nanoid'
+
 import { Filter } from './Filter';
 
 import { useDispatch,  } from 'react-redux';
-import {  newInitialState, removeContact } from 'redux/Slice';
+import {  newInitialState} from 'redux/Slice';
  
 
 
-export const App =({contact}) => {
+export const App =() => {
   const dispatch = useDispatch()
   // const contacts = useSelector(getContact)
    useEffect(() => {
 
 
-    const storage = JSON.stringify(localStorage.getItem('items'))
+    const storage = JSON.parse(localStorage.getItem('items'))
     if (storage  === null) {
       dispatch(newInitialState(
         [
@@ -31,7 +31,7 @@ export const App =({contact}) => {
 },[])
 
 
-  const removeContacts = () =>dispatch(removeContact(contact.id))
+  // const removeContacts = () =>dispatch(removeContact(contact.id))
 // useEffect(() => {
         
 //       const LScontacts = contacts
@@ -95,7 +95,7 @@ export const App =({contact}) => {
         <h2>Contacts:</h2>
       <Filter />
       <ContactsList
-       onDelete={removeContacts} 
+        
       />
       </div>
     );

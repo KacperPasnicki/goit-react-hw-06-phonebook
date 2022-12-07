@@ -7,17 +7,17 @@ import { filterContact } from 'redux/Slice';
 export const Filter =() => {
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
-  const handleChange = (e) => dispatch(filterContact(e.target.value));
-  
+  const onChange = (e) => dispatch(filterContact(e.target.value));
+
       return (
         <label className='label'>
           Find contacts by Name
           <input
             className='filterForm'
             type="text"
-            name="filter"
+            name="filterForm"
            value={filter}
-            onChange={handleChange}
+            onChange={onChange}
           />
         </label>
       );
