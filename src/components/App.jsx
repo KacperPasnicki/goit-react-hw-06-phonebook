@@ -30,60 +30,6 @@ export const App =() => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
 
-
-  // const removeContacts = () =>dispatch(removeContact(contact.id))
-// useEffect(() => {
-        
-//       const LScontacts = contacts
-//     const json = JSON.stringify(LScontacts)
-//     localStorage.setItem('contacts', json)
-//   },[contacts])
-
-
- 
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-   
-  //   const form = e.currentTarget;
-  //   const name = form.elements.name.value
-  //   const number = form.elements.number.value;
-  //   const newContact = { id: nanoid(8), name: name, number: number };
-  //   const nameArray = contacts.map(({name}) =>name)
-  //   if (nameArray.includes(name)) {
-  //     alert(`${name} is already in contacts !`)
-  //   }else {
-  //     dispatch(addContact(name, number))
-    
-
-    
-  //   console.log(name, number);
-
-  //   //  this.props.onSubmit({ ...this.state });
-
-  //   form.reset();
-  // }};
-
-
-
-  
-  
-  ;
-  
-  // const findContact = () => {
-  //   const newArray = contacts.filter(contact => {
-  //     const valueToLow = filter.toLowerCase();
-  //     return contact.name.toLowerCase().includes(valueToLow);
-  //   });
-  //   return newArray;
-  // };
-// const removeContact = () =>dispatch(removeContact(contact.id))
- 
-//   const removeContact = contactID => {
-// const newArray = contacts.filter((item) => item.id !== contactID)
-// setContacts(newArray)
-//   }
-   
     
   return (
       <div className='phonebook'
